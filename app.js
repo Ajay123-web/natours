@@ -9,6 +9,7 @@ const viewRouter = require('./routes/viewRoutes.js');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const csp = require('express-csp');
+const compression = require('compression'); //to compress responses
 
 const rateLimit = require('express-rate-limit'); //prevent d-dos and brute force attacks
 const helmet = require('helmet');
@@ -132,6 +133,8 @@ app.use(
     ]
   })
 );
+
+app.use(compression());
 
 //CUSTOM MIDDLEWARES
 app.use((req, res, next) => {

@@ -19,7 +19,7 @@ mongoose
   })
   .then((con) => {
     //console.log(con.connections);
-    console.log('DB connection Successful');
+    //console.log('DB connection Successful');
   });
 
 const tours = JSON.parse(fs.readFileSync(`${__dirname}/tours.json`, 'utf-8'));
@@ -34,10 +34,10 @@ const importData = async () => {
     await Tour.create(tours);
     await User.create(users, { validateBeforeSave: false });
     await Review.create(reviews);
-    console.log('Data successfully added!');
+    //console.log('Data successfully added!');
     process.exit();
   } catch (err) {
-    console.log(err);
+    //console.log(err);
   }
 };
 //Deleting previous data
@@ -46,10 +46,10 @@ const deleteData = async () => {
     await Tour.deleteMany();
     await User.deleteMany();
     await Review.deleteMany();
-    console.log('Data successfully deleted!');
+    //console.log('Data successfully deleted!');
     process.exit();
   } catch (err) {
-    console.log(err);
+    //console.log(err);
   }
 };
 if (process.argv[2] === '--import') {
@@ -57,4 +57,4 @@ if (process.argv[2] === '--import') {
 } else if (process.argv[2] === '--delete') {
   deleteData();
 }
-console.log(process.argv);
+//console.log(process.argv);

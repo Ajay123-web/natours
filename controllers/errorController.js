@@ -50,7 +50,7 @@ const sendErrorProd = (err, req, res) => {
       // Programming or other unknown error: don't leak error details
     } else {
       // 1) Log error
-      //console.error('ERROR 💥', err);
+      console.error('ERROR 💥', err);
 
       // 2) Send generic message
       res.status(500).json({
